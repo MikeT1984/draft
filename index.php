@@ -11,7 +11,7 @@ class Model
     public function run($distance = null)
     {
         $this->fuel -= $distance * 0.15;
-        echo  "{$this->name} проехал {$distance} км топлива осталось {$this->fuel} литров <br>";
+        echo  "{$this->name} проехал {$distance} км ,топлива осталось {$this->fuel} литров <br>";
     }
     public function info()
     {
@@ -41,4 +41,10 @@ class WarModel extends Model
 $tractor = new Model("Трактор", 100);
 $tractor->info();
 $tractor->run(20);
-var_dump($tractor);
+$tank1 = new WarModel("Танк 1",100,200,50);
+$tank2 = new WarModel("Танк 2",100,200,70);
+$tank1->info();
+$tank2->info();
+$tank1->attack($tank2);
+$tank2->info();
+$tank2->run(150);
